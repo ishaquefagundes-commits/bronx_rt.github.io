@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="dna1.png">
+
+
+    <title>Simulador Genético</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <!-- Copie e cole esta tag <img> dentro do seu cabeçalho verde -->
+<img src="IFSP_logo.png" alt="Logo IFSP" style="
+    position: absolute; 
+    top: 15px; 
+    right: 35px; 
+    height: 120px; 
+    width: auto;  
+    padding: 5px; 
+    border-radius: 6px;
+">
+
+    <div class="logo"><span class="icone ic-dna style="font-size: 50px;></span></div>
+
+    <div>
+        <h1>Simulador Genético</h1>
+        <p>Primeira Lei de Mendel</p>
+    </div>
+</header>
+
+
+<main>
+
+    <section class="introducao">
+
+        <span class="badge">EXPERIMENTO GENÉTICO</span>
+
+        <h2>Crie uma família</h2>
+
+        <p>
+            Escolha as características dos pais e descubra
+            como seria um possível filho através do cruzamento
+            genético.
+        </p>
+
+    </section>
+
+
+    <!-- PAIS -->
+
+    <section class="pais">
+
+
+        <!--PAI -->
+
+        <div class="card-personagem">
+
+            <h2>Pai</h2>
+
+            <div class="personagem-area">
+
+                <div class="personagem homem" id="pai">
+
+                    <!-- CABELO TRASEIRO -->
+                    <div class="cabelo cabelo-atras"></div>
+
+                    <!-- PESCOÇO -->
+                    <div class="pescoco"></div>
+
+                    <!-- CORPO -->
+                    <div class="corpo">
+                        <div class="camisa"></div>
+                    </div>
+
+                    <!-- CABEÇA -->
+                    <div class="cabeca">
+
+                        <div class="orelha esquerda"></div>
+                        <div class="orelha direita"></div>
+
+                        <div class="sobrancelha esquerda"></div>
+                        <div class="sobrancelha direita"></div>
+
+                        <div class="olho esquerda">
+                            <div class="pupila"></div>
+                        </div>
+
+                        <div class="olho direita">
+                            <div class="pupila"></div>
+                        </div>
+
+                        <div class="nariz"></div>
+
+                        <div class="boca"></div>
+
+                    </div>
+
+                    <!-- CABELO FRONTAL -->
+                    <div class="cabelo cabelo-frente"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="controles">
+
+                <label>Cor dos olhos</label>
+
+                <select id="paiOlhos">
+
+                    <option value="BB">Castanho</option>
+                    <option value="bb">Azul</option>
+                    <option value="VV">Verde</option>
+
+                </select>
+
+
+                <label>Tipo de cabelo</label>
+
+                <select id="paiTipoCabelo">
+
+                    <option value="BB">Cacheado</option>
+                    <option value="Bb">Ondulado</option>
+                    <option value="bb">Liso</option>
+
+                </select>
+
+
+                <label>Cor do cabelo</label>
+
+                <select id="paiCorCabelo">
+
+                    <option value="BB">Preto</option>
+                    <option value="Bb">Castanho</option>
+                    <option value="bb">Loiro</option>
+
+                </select>
+
+
+                <label>Tom de pele</label>
+
+                <select id="paiPele">
+
+                    <option value="BB">Escura</option>
+                    <option value="Bb">Morena</option>
+                    <option value="bb">Clara</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MÃE-->
+
+        <div class="card-personagem">
+
+            <h2>Mãe</h2>
+
+            <div class="personagem-area">
+
+                <div class="personagem mulher" id="mae">
+
+                    <!-- CABELO TRASEIRO -->
+                    <div class="cabelo cabelo-atras"></div>
+
+                    <!-- PESCOÇO -->
+                    <div class="pescoco"></div>
+
+                    <!-- CORPO -->
+                    <div class="corpo">
+                        <div class="camisa"></div>
+                    </div>
+
+                    <!-- CABEÇA -->
+                    <div class="cabeca">
+
+                        <div class="orelha esquerda"></div>
+                        <div class="orelha direita"></div>
+
+                        <div class="sobrancelha esquerda"></div>
+                        <div class="sobrancelha direita"></div>
+
+                        <div class="olho esquerda">
+                            <div class="pupila"></div>
+                        </div>
+
+                        <div class="olho direita">
+                            <div class="pupila"></div>
+                        </div>
+
+                        <div class="nariz"></div>
+
+                        <div class="boca"></div>
+
+                    </div>
+
+                    <!-- CABELO FRONTAL -->
+                    <div class="cabelo cabelo-frente"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="controles">
+
+                <label>Cor dos olhos</label>
+
+                <select id="maeOlhos">
+
+                    <option value="BB">Castanho</option>
+                    <option value="bb">Azul</option>
+                    <option value="VV">Verde</option>
+
+                </select>
+
+
+                <label>Tipo de cabelo</label>
+
+                <select id="maeTipoCabelo">
+
+                    <option value="BB">Cacheado</option>
+                    <option value="Bb">Ondulado</option>
+                    <option value="bb">Liso</option>
+
+                </select>
+
+
+                <label>Cor do cabelo</label>
+
+                <select id="maeCorCabelo">
+
+                    <option value="BB">Preto</option>
+                    <option value="Bb">Castanho</option>
+                    <option value="bb">Loiro</option>
+
+                </select>
+
+
+                <label>Tom de pele</label>
+
+                <select id="maePele">
+
+                    <option value="BB">Escura</option>
+                    <option value="Bb">Morena</option>
+                    <option value="bb">Clara</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BOTÃO -->
+
+    <button class="botao-gerar" onclick="gerarFilho()">
+
+        <span class="icone ic-dna"></span>
+
+        GERAR NOVO FILHO
+
+    </button>
+
+
+
+    <!-- FILHO -->
+
+    <section class="filho-section">
+
+        <div class="titulo-secao">
+
+            <span class="badge">RESULTADO</span>
+
+            <h2>Novo personagem</h2>
+
+            <p>
+                O personagem abaixo foi gerado a partir
+                das combinações genéticas dos pais.
+            </p>
+
+        </div>
+
+
+        <div class="filho-area">
+
+            <!-- palco + botão de gênero lado a lado -->
+            <div class="filho-display-wrapper">
+
+                <!-- mesma estrutura dos pais: palco > .personagem -->
+                <div class="personagem-container">
+
+                    <div class="personagem filho homem" id="filho">
+
+                        <!-- CABELO TRASEIRO -->
+                        <div class="cabelo cabelo-atras"></div>
+
+                        <!-- PESCOÇO -->
+                        <div class="pescoco"></div>
+
+                        <!-- CORPO -->
+                        <div class="corpo">
+                            <div class="camisa"></div>
+                        </div>
+
+                        <!-- CABEÇA -->
+                        <div class="cabeca">
+                            <div class="orelha esquerda"></div>
+                            <div class="orelha direita"></div>
+
+                            <div class="sobrancelha esquerda"></div>
+                            <div class="sobrancelha direita"></div>
+
+                            <div class="olho esquerda"><div class="pupila"></div></div>
+                            <div class="olho direita"><div class="pupila"></div></div>
+
+                            <div class="nariz"></div>
+                            <div class="boca"></div>
+                        </div>
+
+                        <!-- CABELO FRONTAL -->
+                        <div class="cabelo cabelo-frente"></div>
+
+                    </div>
+
+                </div>
+
+                <!-- Botão vertical de gênero -->
+                <button type="button" id="btn-genero-filho" class="btn-vertical-genero" onclick="alternarGeneroFilho()">
+                    <span>MASCULINO</span>
+                </button>
+
+            </div>
+
+
+            <!-- RESULTADO -->
+
+            <div class="resultado">
+
+                <h3> Características herdadas</h3>
+
+                <div class="resultado-item">
+                    <span><i class="icone ic-olho"></i></span>
+                    <p id="resultadoOlhos">Olhos: —</p>
+                </div>
+
+                <div class="resultado-item">
+                    <span><i class="icone ic-cabelo"></i></span>
+                    <p id="resultadoTipo">Tipo de cabelo: —</p>
+                </div>
+
+                <div class="resultado-item">
+                    <span><i class="icone ic-cor"></i></span>
+                    <p id="resultadoCor">Cor do cabelo: —</p>
+                </div>
+
+                <div class="resultado-item">
+                    <span><i class="icone ic-pele"></i></span>
+                    <p id="resultadoPele">Tom de pele: —</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PUNNETT -->
+
+    <section class="punnett">
+
+        <div class="titulo-secao">
+
+            <span class="badge">GENÉTICA</span>
+
+            <h2>Quadrado de Punnett</h2>
+
+        </div>
+
+
+        <div class="punnett-abas">
+            <button class="btn-tab ativa" data-carac="olhos" onclick="alternarAbaPunnett('olhos', this)">Olhos</button>
+            <button class="btn-tab" data-carac="tipo" onclick="alternarAbaPunnett('tipo', this)">Tipo Cabelo</button>
+            <button class="btn-tab" data-carac="cor" onclick="alternarAbaPunnett('cor', this)">Cor Cabelo</button>
+            <button class="btn-tab" data-carac="pele" onclick="alternarAbaPunnett('pele', this)">Pele</button>
+        </div>
+
+        <div class="tabela-punnett">
+
+            <div></div>
+
+            <div id="gametaPai1">B</div>
+
+            <div id="gametaPai2">b</div>
+
+
+            <div id="gametaMae1">B</div>
+
+            <div id="p1">BB</div>
+
+            <div id="p2">Bb</div>
+
+
+            <div id="gametaMae2">b</div>
+
+            <div id="p3">Bb</div>
+
+            <div id="p4">bb</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROBABILIDADES -->
+
+    <section class="probabilidades">
+
+        <div class="titulo-secao">
+
+            <span class="badge">ANÁLISE</span>
+
+            <h2>Probabilidades genéticas</h2>
+
+        </div>
+
+
+        <div id="probabilidades">
+
+            <p>
+                Gere um filho para visualizar
+                as probabilidades.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<footer>
+
+    <p class="nota-cientifica">
+        <strong>Nota de Rigor Científico:</strong> Características humanas como a cor dos olhos, tipo de cabelo e tom de pele são, na realidade, traços <em>poligênicos</em> (influenciados por múltiplos genes simultaneamente). Este simulador utiliza intencionalmente um modelo simplificado fundamentado na <strong>Primeira Lei de Mendel</strong> para proporcionar uma experiência didática e acessível de introdução à genética.
+    </p>
+
+    <p>
+         Simulador Genético
+    </p>
+
+    <small>
+        Modelo didático baseado na Primeira Lei de Mendel.
+    </small>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1434 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap");
+
+:root {
+    --verde-escuro: #02463d;
+    --verde: #068b7a;
+    --verde-claro: #e3f4f1;
+    --roxo: #4f46e5;
+    --roxo-claro: #eef0ff;
+    --texto: #172033;
+    --texto-suave: #5b6679;
+    --borda: #dfe5ee;
+    --fundo: #f3f6fa;
+    --raio: 20px;
+    --sombra: 0 1px 2px rgba(23, 32, 51, .06), 0 12px 32px rgba(23, 32, 51, .07);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: -.01em;
+}
+h2 {
+    font-size: 90px;
+}
+
+/* ========================================= */
+/* HEADER */
+/* ========================================= */
+
+header {
+    background: linear-gradient(135deg, var(--verde-escuro), var(--verde));
+    color: white;
+    padding: 32px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    font-size: 56px;
+    line-height: 1;
+    transform: translateY(-20px);
+}
+
+header h1 {
+    font-size: 60px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+
+
+
+header p {
+    opacity: .85;
+    text-align: center;
+    font-size: 25px;
+}
+
+
+/* ========================================= */
+/* MAIN */
+/* ========================================= */
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* ========================================= */
+/* INTRODUÇÃO */
+/* ========================================= */
+
+.introducao {
+    background: white;
+    border: 1px solid var(--borda);
+    border-left: 6px solid var(--verde);
+    border-radius: var(--raio);
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 32px;
+    box-shadow: var(--sombra);
+}
+
+.introducao h2 {
+    font-size: 50px;
+    margin: 12px 0 8px;
+}
+
+.introducao p {
+    color: var(--texto-suave);
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 30px;
+    background: var(--verde-claro);
+    color: var(--verde-escuro);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .6px;
+}
+
+/* ========================================= */
+/* PAIS */
+/* ========================================= */
+
+.pais {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.card-personagem {
+    background: white;
+    border-radius: var(--raio);
+    padding: 28px;
+    box-shadow: var(--sombra);
+    border: 1px solid var(--borda);
+}
+
+.card-personagem > h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+/* ========================================= */
+/* ÁREA DO PERSONAGEM */
+/* ========================================= */
+
+.personagem-area {
+    height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 85%, var(--verde-claro), transparent 70%);
+    border-radius: 16px;
+}
+
+.personagem {
+    width: 230px;
+    height: 310px;
+    position: relative;
+    --pele: #f1bd91;
+    --cabelo: #3b2416;
+    --olhos: #5b371d;
+    --roupa: #4f46e5;
+}
+
+/* as mudanças de cor/formato agora acontecem suavemente */
+.cabeca, .orelha, .pescoco,
+.cabelo-atras, .cabelo-frente,
+.cabelo-frente::after,
+.pupila {
+    transition: background-color .45s ease, border-radius .45s ease;
+}
+
+/* ========================================= */
+/* CABEÇA */
+/* ========================================= */
+
+.cabeca {
+    position: absolute;
+    width: 132px;
+    height: 158px;
+    left: 49px;
+    top: 55px;
+    background: var(--pele);
+    border-radius: 48% 48% 45% 45%;
+    z-index: 5;
+    box-shadow: inset -5px -4px 0 rgba(0, 0, 0, .05);
+}
+
+/* ========================================= */
+/* ORELHAS */
+/* ========================================= */
+
+.orelha {
+    position: absolute;
+    width: 22px;
+    height: 42px;
+    top: 65px;
+    background: var(--pele);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.orelha.esquerda { left: -12px; }
+.orelha.direita  { right: -12px; }
+
+/* ========================================= */
+/* PESCOÇO */
+/* ========================================= */
+
+.pescoco {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: 190px;
+    left: 91px;
+    background: var(--pele);
+    z-index: 2;
+    box-shadow: inset 0 10px 8px -6px rgba(0, 0, 0, .12);
+}
+
+/* ========================================= */
+/* CORPO */
+/* ========================================= */
+
+.corpo {
+    position: absolute;
+    width: 160px;
+    height: 105px;
+    left: 35px;
+    bottom: 0;
+    background: var(--roupa);
+    border-radius: 45px 45px 14px 14px;
+    z-index: 3;
+    overflow: hidden;
+}
+
+.camisa {
+    position: absolute;
+    width: 55px;
+    height: 25px;
+    background: rgba(255, 255, 255, .15);
+    left: 52px;
+    top: 0;
+    border-radius: 0 0 20px 20px;
+}
+
+/* ========================================= */
+/* OLHOS */
+/* ========================================= */
+
+.olho {
+    position: absolute;
+    width: 22px;
+    height: 27px;
+    background: white;
+    border-radius: 50%;
+    top: 67px;
+    z-index: 8;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, .12);
+}
+
+.olho.esquerda { left: 27px; }
+.olho.direita  { right: 27px; }
+
+.pupila {
+    position: absolute;
+    width: 11px;
+    height: 14px;
+    background: var(--olhos);
+    border-radius: 50%;
+    top: 6px;
+    left: 5px;
+}
+
+.pupila::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+}
+
+/* ========================================= */
+/* SOBRANCELHAS */
+/* ========================================= */
+
+.sobrancelha {
+    position: absolute;
+    width: 31px;
+    height: 6px;
+    background: #382217;
+    border-radius: 10px;
+    top: 55px;
+    z-index: 8;
+}
+
+.sobrancelha.esquerda { left: 23px;  transform: rotate(-5deg); }
+.sobrancelha.direita  { right: 23px; transform: rotate(5deg); }
+
+/* ========================================= */
+/* NARIZ */
+/* ========================================= */
+
+.nariz {
+    position: absolute;
+    width: 13px;
+    height: 25px;
+    left: 59px;
+    top: 88px;
+    border-right: 2px solid rgba(90, 45, 30, .35);
+    border-bottom: 2px solid rgba(90, 45, 30, .25);
+    border-radius: 0 0 10px 0;
+    z-index: 8;
+}
+
+/* ========================================= */
+/* BOCA */
+/* ========================================= */
+
+.boca {
+    position: absolute;
+    width: 35px;
+    height: 15px;
+    left: 49px;
+    top: 119px;
+    border-bottom: 3px solid #9c1e31;
+    border-radius: 0 0 50% 50%;
+    z-index: 8;
+}
+
+/* ========================================= */
+/* CABELO */
+/* ========================================= */
+
+.cabelo-atras {
+    position: absolute;
+    background: var(--cabelo);
+    z-index: 3;
+}
+
+.homem .cabelo-atras {
+    width: 146px;
+    height: 105px;
+    left: 42px;
+    top: 40px;
+    border-radius: 55% 55% 30% 30%;
+}
+
+.homem .cabelo-frente {
+    position: absolute;
+    width: 146px;
+    height: 67px;
+    left: 42px;
+    top: 40px;
+    background: var(--cabelo);
+    border-radius: 70px 70px 25px 25px;
+    z-index: 10;
+}
+
+.mulher .cabelo-atras {
+    width: 198px;
+    height: 240px;
+    left: 31px;
+    top: 45px;
+    border-radius: 85px 85px 50px 50px;
+    z-index: 3;
+}
+
+.mulher .cabelo-frente {
+    position: absolute;
+    width: 155px;
+    height: 105px;
+    left: 37px;
+    top: 35px;
+    background: var(--cabelo);
+    border-radius: 80px 80px 35px 35px;
+    z-index: 10;
+}
+
+.mulher .cabelo-frente::after {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 60px;
+    left: 40px;
+    top: 35px;
+    background: var(--cabelo);
+    border-radius: 0 0 50px 50px;
+}
+
+/* cílios */
+
+.mulher .olho::before,
+.filho-feminino .olho::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 6px;
+    border-top: 2px solid #3d241a;
+    top: -4px;
+    left: -2px;
+    border-radius: 50%;
+}
+
+/* ========================================= */
+/* ROUPAS */
+/* ========================================= */
+
+.homem  { --roupa: #3158d8; }
+.mulher { --roupa: #c13d72; }
+
+/* ========================================= */
+/* CONTROLES */
+/* ========================================= */
+
+.controles {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 14px;
+}
+
+.controles label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--texto-suave);
+    margin-top: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 2px solid var(--borda);
+    border-radius: 11px;
+    background: white;
+    font: inherit;
+    font-size: 15px;
+    color: var(--texto);
+    cursor: pointer;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+select:hover {
+    border-color: #b9c3d3;
+}
+
+select:focus-visible {
+    outline: none;
+    border-color: var(--roxo);
+    box-shadow: 0 0 0 4px var(--roxo-claro);
+}
+
+/* ========================================= */
+/* BOTÃO */
+/* ========================================= */
+
+.botao-gerar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    border: none;
+    margin: 32px 0;
+    padding: 19px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--roxo), #7c3aed);
+    color: white;
+    font: inherit;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(79, 70, 229, .25);
+    transition: transform .2s, box-shadow .2s;
+}
+
+.botao-gerar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(79, 70, 229, .35);
+}
+
+.botao-gerar:active {
+    transform: translateY(0);
+}
+
+.botao-gerar:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: -6px;
+}
+
+/* ========================================= */
+/* FILHO */
+/* ========================================= */
+
+.filho-section,
+.punnett,
+.probabilidades {
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 35px;
+    box-shadow: var(--sombra);
+}
+
+.punnett,
+.probabilidades {
+    margin-top: 28px;
+}
+
+.titulo-secao {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.titulo-secao h2 {
+    margin: 10px 0 4px;
+    font-size: 28px;
+}
+
+.titulo-secao p {
+    color: var(--texto-suave);
+}
+
+.filho-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+}
+
+.personagem-container {
+    padding: 10px 20px;
+    background: radial-gradient(circle at 50% 85%, var(--verde-claro), transparent 70%);
+    border-radius: 16px;
+}
+
+/* ========================================= */
+/* RESULTADO */
+/* ========================================= */
+
+.resultado {
+    width: 360px;
+    background: var(--fundo);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--borda);
+}
+
+.resultado h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.resultado-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--borda);
+}
+
+.resultado-item:last-child {
+    border-bottom: none;
+}
+
+.resultado-item span {
+    font-size: 20px;
+}
+
+.resultado-item strong {
+    color: var(--verde-escuro);
+}
+
+/* ========================================= */
+/* PUNNETT */
+/* ========================================= */
+
+.tabela-punnett {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    gap: 6px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.tabela-punnett > div {
+    height: 78px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+    background: var(--roxo-claro);
+    color: var(--roxo);
+    border: 1px solid #d9dcff;
+}
+
+/* primeira célula (canto) vazia */
+.tabela-punnett > div:nth-child(1) {
+    background: none;
+    border: none;
+}
+
+/* gametas (cabeçalhos da tabela) */
+.tabela-punnett > div:nth-child(2),
+.tabela-punnett > div:nth-child(3),
+.tabela-punnett > div:nth-child(4),
+.tabela-punnett > div:nth-child(7) {
+    background: var(--verde-escuro);
+    color: white;
+    border-color: var(--verde-escuro);
+}
+
+/* ========================================= */
+/* PROBABILIDADES */
+/* ========================================= */
+
+#probabilidades {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+#probabilidades > p {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--texto-suave);
+}
+
+.probabilidade-linha {
+    background: var(--fundo);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    padding: 16px 18px;
+    line-height: 1.8;
+    color: var(--texto-suave);
+}
+
+.probabilidade-linha strong {
+    color: var(--texto);
+    font-size: 17px;
+}
+
+/* ========================================= */
+/* FOOTER */
+/* ========================================= */
+
+footer {
+    margin-top: 50px;
+    padding: 30px 20px;
+    text-align: center;
+    background: var(--texto);
+    color: white;
+}
+
+footer small {
+    display: block;
+    margin-top: 6px;
+    opacity: .6;
+}
+
+/* ========================================= */
+/* RESPONSIVO */
+/* ========================================= */
+
+@media (max-width: 800px) {
+    .pais {
+        grid-template-columns: 1fr;
+    }
+
+    .filho-area {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .resultado {
+        width: 100%;
+    }
+
+    #probabilidades {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 450px) {
+    main {
+        padding: 20px 10px;
+    }
+
+    .card-personagem,
+    .filho-section,
+    .punnett,
+    .probabilidades {
+        padding: 20px;
+    }
+
+    .controles {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .tabela-punnett {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ================================================= */
+/* REFINAMENTO PROFISSIONAL + CENÁRIOS DOS PERSONAGENS */
+/* ================================================= */
+
+:root {
+    --roxo: #34408f;
+    --roxo-claro: #eceffb;
+    --sombra: 0 1px 2px rgba(15, 30, 50, .05), 0 8px 24px rgba(15, 30, 50, .06);
+    --raio: 16px;
+}
+
+body {
+    background: #f1f4f8;
+}
+
+header {
+    background: linear-gradient(120deg, #052e33, #0a6b62);
+    border-bottom: 3px solid #12a594;
+    box-shadow: none;
+}
+
+.introducao {
+    border-left-width: 4px;
+}
+
+.introducao h2,
+.titulo-secao h2 {
+    font-weight: 600;
+}
+
+.card-personagem {
+    position: relative;
+    border-top: 4px solid var(--acento, var(--verde));
+    transition: box-shadow .25s ease;
+}
+
+.card-personagem:hover {
+    box-shadow: 0 1px 2px rgba(15, 30, 50, .05), 0 16px 36px rgba(15, 30, 50, .10);
+}
+
+/* cada card tem sua cor de cena */
+.pais .card-personagem:first-child {
+    --acento: #3158d8;
+    --cena-topo: #eef3ff;
+    --cena-base: #dbe6fb;
+    --chao: #c6d4f1;
+    --chao2: #b4c4e8;
+}
+
+.pais .card-personagem:last-child {
+    --acento: #c13d72;
+    --cena-topo: #fff0f6;
+    --cena-base: #fadce9;
+    --chao: #f0c8da;
+    --chao2: #e6b5cb;
+}
+
+/* ---------- palco dos pais ---------- */
+
+.personagem-area,
+.personagem-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid rgba(15, 30, 50, .08);
+    background:
+        linear-gradient(
+            180deg,
+            var(--cena-topo, #eef3ff) 0%,
+            var(--cena-base, #dbe6fb) 71%,
+            var(--chao, #c6d4f1) 71%,
+            var(--chao2, #b4c4e8) 100%
+        );
+}
+
+/* textura de pontos na parede */
+.personagem-area::before,
+.personagem-container::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 29% 0;
+    background-image: radial-gradient(rgba(15, 30, 50, .10) 1px, transparent 1.4px);
+    background-size: 18px 18px;
+    -webkit-mask-image: linear-gradient(180deg, #000, transparent 90%);
+    mask-image: linear-gradient(180deg, #000, transparent 90%);
+    pointer-events: none;
+}
+
+/* sombra no chão, sob o personagem */
+.personagem-area::after,
+.personagem-container::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    width: 180px;
+    height: 22px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse at center, rgba(15, 30, 50, .28), transparent 70%);
+    pointer-events: none;
+}
+
+.personagem {
+    z-index: 1;
+    filter: drop-shadow(0 6px 10px rgba(15, 30, 50, .12));
+}
+
+/* ---------- palco do filho ---------- */
+
+.personagem-container {
+    --cena-topo: #effaf1;
+    --cena-base: #d6efdc;
+    --chao: #bfe3c9;
+    --chao2: #a9d6b6;
+    width: 290px;
+    height: 330px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filho-section {
+    border-top: 4px solid #2f9e44;
+}
+
+/* ---------- controles e botão ---------- */
+
+.controles {
+    padding-top: 6px;
+    border-top: 1px solid var(--borda);
+    margin-top: 18px;
+}
+
+.botao-gerar {
+    background: linear-gradient(135deg, #0a6b62, #0d8a7c);
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(10, 107, 98, .28);
+}
+
+.botao-gerar:hover {
+    box-shadow: 0 10px 22px rgba(10, 107, 98, .38);
+}
+
+/* ---------- resultados ---------- */
+
+.resultado {
+    background: #f7f9fb;
+    border-radius: 14px;
+}
+
+.resultado-item span {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: white;
+    border: 1px solid var(--borda);
+    font-size: 18px;
+}
+
+.tabela-punnett > div {
+    border-radius: 10px;
+}
+
+.punnett {
+    border: 3px solid var(--verde);
+     margin: 25px auto 0 auto;   
+}
+
+.probabilidade-linha {
+    background: #f7f9fb;
+    border-left: 4px solid var(--verde);
+    border-radius: 12px;
+}
+
+@media (max-width: 800px) {
+    .personagem-container {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+
+/* ================================================= */
+/* ÍCONES (substituem os emojis) */
+/* ================================================= */
+
+.icone {
+    display: inline-block;
+    width: 1.15em;
+    height: 1.15em;
+    vertical-align: -.2em;
+    background: currentColor;
+    -webkit-mask: var(--ic) center / contain no-repeat;
+    mask: var(--ic) center / contain no-repeat;
+}
+.ic-olho { --ic: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%20fill=%27none%27%20stroke=%27black%27%20stroke-width=%272%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%3E%3Cpath%20d=%27M2%2012s3-7%2010-7%2010%207%2010%207-3%207-10%207-10-7-10-7Z%27/%3E%3Ccircle%20cx=%2712%27%20cy=%2712%27%20r=%273%27/%3E%3C/svg%3E"); }
+.ic-cabelo { --ic: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%20fill=%27none%27%20stroke=%27black%27%20stroke-width=%272%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%3E%3Cpath%20d=%27M2%206c.6.5%201.2%201%202.5%201C7%207%207%205%209.5%205c2.6%200%202.4%202%205%202%202.5%200%202.5-2%205-2%201.3%200%201.9.5%202.5%201%27/%3E%3Cpath%20d=%27M2%2012c.6.5%201.2%201%202.5%201%202.5%200%202.5-2%205-2%202.6%200%202.4%202%205%202%202.5%200%202.5-2%205-2%201.3%200%201.9.5%202.5%201%27/%3E%3Cpath%20d=%27M2%2018c.6.5%201.2%201%202.5%201%202.5%200%202.5-2%205-2%202.6%200%202.4%202%205%202%202.5%200%202.5-2%205-2%201.3%200%201.9.5%202.5%201%27/%3E%3C/svg%3E"); }
+.ic-cor { --ic: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%20fill=%27none%27%20stroke=%27black%27%20stroke-width=%272%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%3E%3Cpath%20d=%27M12%2022a7%207%200%200%200%207-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5%202.5-2%204.9-4%206.5C6%2011.1%205%2013%205%2015a7%207%200%200%200%207%207z%27/%3E%3C/svg%3E"); }
+.ic-pele { --ic: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%20fill=%27none%27%20stroke=%27black%27%20stroke-width=%272%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%3E%3Ccircle%20cx=%2712%27%20cy=%2712%27%20r=%274%27/%3E%3Cpath%20d=%27M12%202v2M12%2020v2M4.9%204.9l1.4%201.4M17.7%2017.7l1.4%201.4M2%2012h2M20%2012h2M6.3%2017.7l-1.4%201.4M19.1%204.9l-1.4%201.4%27/%3E%3C/svg%3E"); }
+.ic-dna { --ic: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%20fill=%27none%27%20stroke=%27black%27%20stroke-width=%272%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%3E%3Cpath%20d=%27m10%2016%201.5%201.5%27/%3E%3Cpath%20d=%27m14%208-1.5-1.5%27/%3E%3Cpath%20d=%27M15%202c-1.8%202-2.5%204-2.8%206%27/%3E%3Cpath%20d=%27m16.5%2010.5%201%201%27/%3E%3Cpath%20d=%27m17%206-2.9-2.9%27/%3E%3Cpath%20d=%27M2%2015c6.7-6%2013.3%200%2020-6%27/%3E%3Cpath%20d=%27m20%209%20.9.9%27/%3E%3Cpath%20d=%27M3.1%2014.1%204%2015%27/%3E%3Cpath%20d=%27m6.5%2012.5%201%201%27/%3E%3Cpath%20d=%27m7%2018%202.9%202.9%27/%3E%3Cpath%20d=%27M9%2022c1.8-2%202.5-4%202.8-6%27/%3E%3C/svg%3E"); }
+
+.logo .icone { width: 1em; height: 1em; }
+.botao-gerar .icone { font-size: 24px; }
+.resultado-item i.icone { font-size: 20px; color: var(--verde-escuro); }
+.probabilidade-linha .icone { color: var(--verde); margin-right: 4px; }
+
+/* ================================================= */
+/* CENÁRIO: LABORATÓRIO (janela + bancada) */
+/* ================================================= */
+
+.personagem-area,
+.personagem-container {
+    background:
+        linear-gradient(180deg, var(--cena-topo, #eef3ff) 0%, var(--cena-base, #dbe6fb) 71%, transparent 71%),
+        linear-gradient(180deg, #d5dbe2 0%, #b7c0ca 100%);
+}
+
+/* parede de azulejos + janela */
+.personagem-area::before,
+.personagem-container::before {
+    inset: 0 0 29% 0;
+    -webkit-mask: none;
+    mask: none;
+    background:
+        /* vidro */
+        linear-gradient(160deg, #cfe9ff 0%, #f4fbff 100%) 7% 22px / 62px 82px no-repeat,
+        /* caixilho vertical e horizontal */
+        linear-gradient(#8a97a6, #8a97a6) calc(7% + 30px) 22px / 3px 82px no-repeat,
+        linear-gradient(#8a97a6, #8a97a6) 7% 61px / 62px 3px no-repeat,
+        /* moldura */
+        linear-gradient(#8a97a6, #8a97a6) calc(7% - 4px) 18px / 70px 90px no-repeat,
+        /* azulejos */
+        repeating-linear-gradient(0deg, rgba(15, 30, 50, .07) 0 1px, transparent 1px 26px),
+        repeating-linear-gradient(90deg, rgba(15, 30, 50, .05) 0 1px, transparent 1px 52px);
+}
+
+/* borda frontal da bancada */
+.personagem-area::after,
+.personagem-container::after {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: 29%;
+    transform: none;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, .75) 0 3px, rgba(15, 30, 50, .18) 3px 4px, transparent 4px),
+        radial-gradient(ellipse 90px 11px at 50% 62%, rgba(15, 30, 50, .30), transparent 100%);
+}
+
+
+/* ================================================= */
+/* TEXTURA DO CABELO (muda conforme o tipo escolhido) */
+/* O JS já define o border-radius de cada tipo; o CSS */
+/* lê esse valor e aplica a textura correspondente.   */
+/* ================================================= */
+
+:root {
+    --textura-liso:
+        linear-gradient(100deg, transparent 28%, rgba(255, 255, 255, .24) 46%, transparent 62%),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, .10) 0 1px, transparent 1px 4px);
+    --textura-ondulado: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%2724%27%20height=%2712%27%20viewBox=%270%200%2024%2012%27%3E%3Cpath%20d=%27M0%206Q6%200%2012%206T24%206%27%20fill=%27none%27%20stroke=%27rgba%280%2C0%2C0%2C.28%29%27%20stroke-width=%271.6%27/%3E%3C/svg%3E");
+    --textura-cacheado: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%2716%27%20height=%2716%27%20viewBox=%270%200%2016%2016%27%3E%3Ccircle%20cx=%274%27%20cy=%274%27%20r=%273.2%27%20fill=%27none%27%20stroke=%27rgba%280%2C0%2C0%2C.32%29%27%20stroke-width=%271.8%27/%3E%3Ccircle%20cx=%2712%27%20cy=%2712%27%20r=%273.2%27%20fill=%27none%27%20stroke=%27rgba%280%2C0%2C0%2C.32%29%27%20stroke-width=%271.8%27/%3E%3Ccircle%20cx=%2712%27%20cy=%274%27%20r=%271%27%20fill=%27rgba%28255%2C255%2C255%2C.25%29%27/%3E%3Ccircle%20cx=%274%27%20cy=%2712%27%20r=%271%27%20fill=%27rgba%28255%2C255%2C255%2C.25%29%27/%3E%3C/svg%3E");
+}
+
+/* ---- LISO: fios retos + brilho ---- */
+.cabelo-frente[style*="70px 70px 20px 20px"],
+.cabelo-atras[style="border-radius: 60px;"],
+.mulher .cabelo-frente[style*="70px 70px 20px 20px"]::after {
+    background-image: var(--textura-liso);
+}
+
+/* ---- ONDULADO: ondas ---- */
+.cabelo-frente[style*="60px 60px 35px 35px"],
+.cabelo-atras[style="border-radius: 70px;"],
+.mulher .cabelo-frente[style*="60px 60px 35px 35px"]::after {
+    background-image: var(--textura-ondulado);
+    background-size: 24px 12px;
+}
+
+/* ---- CACHEADO: cachos ---- */
+.cabelo-frente[style*="border-radius: 50%"],
+.cabelo-atras[style*="border-radius: 50%"],
+.mulher .cabelo-frente[style*="border-radius: 50%"]::after {
+    background-image: var(--textura-cacheado);
+    background-size: 16px 16px;
+}
+
+
+/* ================================================= */
+/* CORREÇÃO DO CABELO DA MÃE                          */
+/* ================================================= */
+
+/* cabelo de trás: centralizado na cabeça (centro = 115px)
+   e com formato fixo de cabelo longo, mesmo com o tipo escolhido */
+.mulher .cabelo-atras {
+    width: 190px;
+    height: 232px;
+    left: 20px;
+    top: 42px;
+    border-radius: 95px 95px 40px 40px !important;
+}
+
+/* parte da frente: só cobre o topo da cabeça,
+   terminando acima das sobrancelhas */
+.mulher .cabelo-frente {
+    width: 158px;
+    height: 66px;
+    left: 36px;
+    top: 36px;
+}
+
+/* a franja antiga descia até os olhos */
+.mulher .cabelo-frente::after {
+    display: none;
+}
+
+
+/* ================================================= */
+/* REALISMO: volume, texturas e ornamentos            */
+/* ================================================= */
+
+/* ---------- PELE com volume (luz, sombra e rubor) ---------- */
+
+.cabeca {
+    background:
+        radial-gradient(ellipse 60% 50% at 35% 28%, color-mix(in srgb, var(--pele) 78%, white), transparent 70%),
+        radial-gradient(ellipse at 50% 55%, var(--pele) 55%, color-mix(in srgb, var(--pele) 78%, black) 100%);
+    box-shadow:
+        inset -6px -8px 14px rgba(60, 20, 0, .12),
+        inset 4px 4px 10px rgba(255, 255, 255, .10);
+}
+
+/* rubor nas bochechas */
+.cabeca::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 24% 66%, rgba(214, 92, 92, .20) 0 12px, transparent 17px),
+        radial-gradient(circle at 76% 66%, rgba(214, 92, 92, .20) 0 12px, transparent 17px);
+}
+
+.orelha {
+    background: color-mix(in srgb, var(--pele) 90%, black);
+}
+
+.orelha::after {
+    content: "";
+    position: absolute;
+    inset: 22% 26%;
+    border-radius: 50%;
+    background: rgba(120, 40, 20, .18);
+}
+
+/* barba por fazer no pai */
+.homem .cabeca::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 92px;
+    bottom: 0;
+    border-radius: 0 0 50% 50%;
+    pointer-events: none;
+    opacity: .2;
+    background: radial-gradient(rgba(30, 15, 5, .55) .7px, transparent 1.1px) 0 0 / 4px 4px;
+    -webkit-mask: linear-gradient(180deg, transparent, #000 40%);
+    mask: linear-gradient(180deg, transparent, #000 40%);
+}
+
+/* ---------- OLHOS com profundidade ---------- */
+
+.olho {
+    background: radial-gradient(circle at 50% 45%, #fff 55%, #e3e7ed 100%);
+}
+
+/* sombra da pálpebra superior */
+.olho::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 55% 0;
+    border-radius: 50% 50% 0 0;
+    background: linear-gradient(rgba(0, 0, 0, .16), transparent);
+}
+
+.pupila {
+    background: radial-gradient(
+        circle at 50% 50%,
+        #000 0 26%,
+        var(--olhos) 30% 68%,
+        color-mix(in srgb, var(--olhos) 50%, black) 100%
+    );
+}
+
+.sobrancelha {
+    height: 7px;
+    background: color-mix(in srgb, var(--cabelo) 70%, black);
+    border-radius: 10px 10px 4px 4px;
+}
+
+/* ---------- NARIZ e BOCA ---------- */
+
+.nariz::after {
+    content: "";
+    position: absolute;
+    left: -9px;
+    bottom: -3px;
+    width: 22px;
+    height: 7px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(80, 30, 20, .28), transparent 70%);
+}
+
+.boca {
+    width: 38px;
+    height: 13px;
+    left: 47px;
+    top: 121px;
+    border: none;
+    border-radius: 45% 45% 55% 55% / 35% 35% 65% 65%;
+    background: linear-gradient(180deg, #b84a58 0 45%, #9e3040 45% 100%);
+}
+
+.boca::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    top: 45%;
+    height: 1px;
+    background: rgba(60, 10, 20, .55);
+}
+
+.mulher .boca {
+    background: linear-gradient(180deg, #cc3f5e 0 45%, #a82a48 45% 100%);
+}
+
+/* ---------- CABELO com brilho e profundidade ---------- */
+
+.cabelo-atras {
+    box-shadow:
+        inset 0 -50px 60px rgba(0, 0, 0, .35),
+        inset 14px 0 28px rgba(0, 0, 0, .22),
+        inset -14px 0 28px rgba(0, 0, 0, .22);
+}
+
+.cabelo-frente {
+    box-shadow:
+        inset 0 -12px 16px rgba(0, 0, 0, .28),
+        0 4px 6px rgba(0, 0, 0, .16);
+}
+
+.cabelo-frente::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background:
+        linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, .30) 38%, transparent 55%),
+        linear-gradient(180deg, rgba(255, 255, 255, .12), transparent 40%);
+}
+
+/* ---------- ROUPA com tecido, gola e ornamentos ---------- */
+
+.corpo {
+    background-image:
+        linear-gradient(90deg, rgba(0, 0, 0, .20), transparent 28%, transparent 72%, rgba(0, 0, 0, .20)),
+        linear-gradient(180deg, rgba(255, 255, 255, .10), transparent 40%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, .07) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(-45deg, rgba(0, 0, 0, .07) 0 1px, transparent 1px 3px);
+}
+
+/* decote: mostra a pele */
+.camisa {
+    width: 62px;
+    height: 34px;
+    left: 49px;
+    background: color-mix(in srgb, var(--pele) 88%, black);
+    border-radius: 0 0 31px 31px;
+    box-shadow: inset 0 6px 8px rgba(0, 0, 0, .18);
+}
+
+/* pai: gola com acabamento e botões */
+.homem .camisa {
+    border: 4px solid color-mix(in srgb, var(--roupa) 70%, white);
+    border-top: none;
+}
+
+.homem .camisa::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 38px;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .7);
+    box-shadow: 0 18px 0 rgba(255, 255, 255, .7);
+}
+
+/* mãe: colar dourado com pingente */
+.mulher .camisa::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: -6px;
+    width: 56px;
+    height: 40px;
+    border: 2px solid #d4a73c;
+    border-top: none;
+    border-radius: 0 0 50% 50%;
+}
+
+.mulher .camisa::after {
+    content: "";
+    position: absolute;
+    left: 26px;
+    top: 30px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff3b0, #d4a73c 55%, #8a6410);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+}
+
+/* mãe: brincos dourados */
+.mulher .orelha::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -14px;
+    width: 9px;
+    height: 14px;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 55% 55%;
+    background: radial-gradient(circle at 35% 30%, #fff3b0, #d4a73c 55%, #8a6410);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+}
+/* imagem de fundo dos palcos */
+.pais .card-personagem:first-child .personagem-area {
+    background: url("img/fundo-pai.jpg]") center / cover no-repeat, #dbe6fb;
+}
+
+.pais .card-personagem:last-child .personagem-area {
+    background: url("fundo-pai.jp") center / cover no-repeat, #fadce9;
+}
+
+/* opcional: o mesmo para o filho */
+.personagem-container {
+    background: url("img/fundo-filho.jpg") center / cover no-repeat, #d6efdc;
+}
+
+/* remove a janela, os azulejos e a bancada do cenário de laboratório */
+.personagem-area::before,
+.personagem-container::before {
+    display: none;
+}
+
+/* mantém só a sombra suave sob os pés */
+.personagem-area::after,
+.personagem-container::after {
+    background: radial-gradient(ellipse 90px 11px at 50% 88%, rgba(0, 0, 0, .3), transparent);
+}
+body {
+    background-image: url('imagem_fundo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Mantém o fundo fixo ao rolar a página */
+    min-height: 100vh;  
+}
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* Container que mantém o card do filho e o botão juntos */
+.filho-display-wrapper {
+    display: flex;
+    align-items: stretch; /* botão com a mesma altura do palco */
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* O botão na vertical */
+.btn-vertical-genero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #3158d8; /* Cor padrão inicial (Masculino) */
+    color: white;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 0 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+/* Rotaciona o texto para ficar na vertical (de baixo para cima) */
+.btn-vertical-genero span {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    white-space: nowrap;
+}
+
+.btn-vertical-genero:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+}
+
+.btn-vertical-genero:active {
+    transform: scale(1);
+}
+
+/* Estilo quando mudar para feminino */
+.btn-vertical-genero.feminino {
+    background: #c13d72; /* Rosa correspondente ao das mulheres no seu CSS */
+}
+
+/* Classe dinâmica para aplicar estilos femininos no layout do filho */
+/* a cor da roupa já vem de .homem / .mulher (mesma cor do botão) */
+
+
+
+
+@media (max-width: 450px) {
+    .filho-display-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-vertical-genero {
+        width: 290px;
+        padding: 10px 14px;
+    }
+
+    .btn-vertical-genero span {
+        writing-mode: horizontal-tb;
+        transform: none;
+    }
+}
+
+
+/* ========================================= */
+/* ABAS DO QUADRADO DE PUNNETT */
+/* ========================================= */
+
+.punnett-abas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.btn-tab {
+    background: var(--fundo);
+    border: 1px solid var(--borda);
+    color: var(--texto-suave);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.btn-tab:hover {
+    border-color: var(--verde);
+    color: var(--verde-escuro);
+}
+
+.btn-tab.ativa {
+    background: var(--verde);
+    color: white;
+    border-color: var(--verde);
+}
+
+
+/* ========================================= */
+/* NOTA CIENTÍFICA (RODAPÉ) */
+/* ========================================= */
+
+.nota-cientifica {
+    font-size: 13px;
+    opacity: 0.85;
+    max-width: 750px;
+    margin: 0 auto 20px auto;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 16px;
+}
